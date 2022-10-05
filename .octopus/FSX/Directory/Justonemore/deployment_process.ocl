@@ -1,0 +1,37 @@
+step "run-a-script" {
+    condition = "Variable"
+    name = "Run a Script"
+    properties = {
+        Octopus.Action.TargetRoles = "ssh"
+        Octopus.Step.ConditionVariableExpression = "#{Var}"
+    }
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptBody = "echo \"hi\""
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Bash"
+        }
+        worker_pool_variable = ""
+    }
+}
+
+step "blah-blah" {
+    name = "Blah Blah"
+    properties = {
+        Octopus.Action.TargetRoles = "ssh"
+    }
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptBody = "echo \"hello again\""
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Bash"
+        }
+        worker_pool_variable = ""
+    }
+}

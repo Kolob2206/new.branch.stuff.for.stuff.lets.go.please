@@ -1,0 +1,11 @@
+variable "OctopusPrintEvaluatedVariables" {
+    value "True" {}
+}
+
+variable "OctopusPrintVariables" {
+    value "True" {}
+}
+
+variable "Var" {
+    value "False" {}
+}
